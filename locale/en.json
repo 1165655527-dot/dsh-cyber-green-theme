@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Cyber Green Theme",
+    "description": "A CRT cyber-green theme for DeepSeek Harness: sidebar, top bar, composer, menus and popovers all turn green, with a subtle CRT scanline and vignette. A tiny iOS-style switch at the left of the composer toolbar turns it on/off (grey = back to your system palette) and remembers the choice; hovering it shows the current state. Colours are driven by DSH design tokens, so plugins you install later pick up the palette automatically. Best used together with dsh-claude-style (by Nwflower, MIT, https://github.com/Nwflower/dsh-claude-style): that plugin supplies typography and motion, this theme supplies colour; it also works standalone with a built-in typography baseline. Writes nothing except the localStorage key dsh.cyber-green.",
+    "detail": "docs/DETAIL.md"
+  }
+}

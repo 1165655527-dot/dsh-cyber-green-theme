@@ -1,0 +1,440 @@
+/* ==========================================================================
+   赛博绿主题 / Cyber Green Theme
+   1) 令牌层：覆盖 DSH 设计令牌，任何用令牌的插件自动跟随（推荐机制）
+   2) 兜底层：对整窗文字/图标做统一上色，覆盖硬编码颜色的插件
+   3) CRT 层：扫描线 + 暗角，仅开启时生效
+   开关：<html data-dsh-cyber="off"> 时全部失效。
+   ========================================================================== */
+
+html:not([data-dsh-cyber="off"]) {
+  --cy-green: #58c08f;
+  --cy-green-soft: #479a76;
+  --cy-green-dim: #2f8f66;
+  --cy-bg: #0b100e;
+  --cy-bg-2: #101713;
+  --cy-line: rgba(88, 192, 143, 0.20);
+
+  /* 底色 */
+  --dsw-alias-bg-base: #0b100e;
+  --dsw-alias-bg-layer-1: #0b100e;
+  --dsw-alias-bg-layer-2: #101713;
+  --dsw-alias-bg-layer-3: #141d17;
+  --dsw-alias-bg-module-platform: #0d1310;
+  --dsw-alias-card-fill: #101713;
+  --dsw-alias-card-tile-fill: #121a16;
+  --dsw-alias-markdown-code-block: #0a1410;
+  --dsw-alias-tooltip-bg: #141d17;
+  --dsw-alias-bg-mask-1: rgba(0, 0, 0, 0.62);
+  --dsw-alias-bg-skeleton: #163024;
+
+  /* 文字 */
+  --dsw-alias-label-primary: #58c08f;
+  --dsw-alias-label-secondary: #479a76;
+  --dsw-alias-label-tertiary: #377c5f;
+  --dsw-alias-label-caption: #368760;
+  --dsw-alias-label-dimmed: #2a6149;
+  --dsw-alias-label-primary-dimmed: #52c08c;
+  --dsw-alias-menu-icon: #479a76;
+  --dsw-alias-link: #7fe0b3;
+
+  /* 线条 */
+  --dsw-alias-border-l1: rgba(88, 192, 143, 0.24);
+  --dsw-alias-border-l2: rgba(88, 192, 143, 0.55);
+  --dsw-alias-border-l3: rgba(88, 192, 143, 0.55);
+  --dsw-alias-border-l4: rgba(88, 192, 143, 0.55);
+
+  /* 交互 */
+  --dsw-alias-interactive-bg-hover: rgba(88, 192, 143, 0.10);
+  --dsw-alias-interactive-bg-active: rgba(88, 192, 143, 0.16);
+  --dsw-alias-interactive-bg-hover-solid: #14251c;
+  --dsw-alias-button-primary-fill: #2f8f66;
+  --dsw-alias-button-primary-hover: #37a577;
+  --dsw-alias-button-floating-fill: #141d17;
+  --dsw-alias-button-elevated-fill: #141d17;
+  --dsw-alias-button-ghost-active-fill: rgba(88, 192, 143, 0.24);
+  --dsw-alias-scrollbar-bg-l2: rgba(88, 192, 143, 0.10);
+  --dsw-alias-scrollbar-hover-l2: rgba(88, 192, 143, 0.24);
+  --dsw-focus-ring-color: rgba(88, 192, 143, 0.55);
+
+  color-scheme: dark;
+}
+
+/* claude-style 皮肤会用 body[data-dsh-claude-style][data-dsh-claude-palette=...]
+   重新定义整套令牌（特异性 0,3,1），必须在同一层级再覆盖一次，
+   否则底部工具条、右侧面板仍会是它自己的浅色/深色。 */
+html:not([data-dsh-cyber="off"]) body[data-dsh-claude-style][data-dsh-claude-palette]:not([data-ds-dark-theme]),
+html:not([data-dsh-cyber="off"]) body[data-dsh-claude-style][data-dsh-claude-palette][data-ds-dark-theme] {
+  --dsw-alias-bg-base: #0b100e;
+  --dsw-alias-bg-layer-1: #0b100e;
+  --dsw-alias-bg-layer-2: #101713;
+  --dsw-alias-bg-layer-3: #141d17;
+  --dsw-alias-bg-module-platform: #0d1310;
+  --dsw-alias-card-fill: #101713;
+  --dsw-alias-card-tile-fill: #121a16;
+  --dsw-alias-markdown-code-block: #0a1410;
+  --dsw-alias-tooltip-bg: #141d17;
+  --dsw-alias-bg-mask-1: rgba(0, 0, 0, 0.62);
+  --dsw-alias-label-primary: #58c08f;
+  --dsw-alias-label-secondary: #479a76;
+  --dsw-alias-label-tertiary: #377c5f;
+  --dsw-alias-label-caption: #368760;
+  --dsw-alias-label-dimmed: #2a6149;
+  --dsw-alias-menu-icon: #479a76;
+  --dsw-alias-link: #7fe0b3;
+  --dsw-alias-border-l1: rgba(88, 192, 143, 0.24);
+  --dsw-alias-border-l2: rgba(88, 192, 143, 0.55);
+  --dsw-alias-border-l3: rgba(88, 192, 143, 0.55);
+  --dsw-alias-border-l4: rgba(88, 192, 143, 0.55);
+  --dsw-alias-interactive-bg-hover: rgba(88, 192, 143, 0.10);
+  --dsw-alias-interactive-bg-active: rgba(88, 192, 143, 0.16);
+  --dsw-alias-interactive-bg-hover-solid: #14251c;
+  --dsw-alias-button-primary-fill: #2f8f66;
+  --dsw-alias-button-primary-hover: #37a577;
+  --dsw-alias-button-floating-fill: #141d17;
+  --dsw-alias-button-elevated-fill: #141d17;
+  --dsw-alias-button-ghost-active-fill: rgba(88, 192, 143, 0.24);
+  --dsh-claude-hover-bg: rgba(88, 192, 143, 0.10);
+  --dsh-claude-chip: #101713;
+  --dsw-specific-bubble: #101713;
+  --dsw-specific-menu: #101713;
+}
+
+/* ---------- 兜底层：整窗文字与图标（不依赖任何哈希类名） ---------- */
+html:not([data-dsh-cyber="off"]) body {
+  background: #0b100e !important;
+  color: #58c08f;
+}
+
+html:not([data-dsh-cyber="off"]) body :is(span, div, p, label, small, strong, em, b, i, u, s,
+    button, a, li, td, th, h1, h2, h3, h4, h5, h6, kbd, dt, dd, blockquote, figcaption,
+    summary, time, mark, sub, sup, figcaption):not(pre *):not(code *):not(svg *) {
+  color: #58c08f !important;
+}
+
+html:not([data-dsh-cyber="off"]) body svg {
+  color: #479a76 !important;
+}
+
+html:not([data-dsh-cyber="off"]) body a {
+  text-decoration-color: rgba(88, 192, 143, 0.40);
+  text-underline-offset: 2px;
+}
+
+html:not([data-dsh-cyber="off"]) body :not(pre) > code {
+  color: #9df0c4 !important;
+  background: rgba(88, 192, 143, 0.09) !important;
+  border: 1px solid rgba(88, 192, 143, 0.18);
+  border-radius: 4px;
+}
+
+html:not([data-dsh-cyber="off"]) body pre {
+  background: #0a1410 !important;
+  border: 1px solid rgba(88, 192, 143, 0.16) !important;
+}
+
+html:not([data-dsh-cyber="off"]) body ::selection {
+  background: rgba(88, 192, 143, 0.28);
+  color: #eafff3;
+}
+
+html:not([data-dsh-cyber="off"]) body :is(input, textarea, [contenteditable="true"]) {
+  caret-color: #58c08f;
+}
+
+html:not([data-dsh-cyber="off"]) body :is(textarea, input)::placeholder {
+  color: rgba(88, 192, 143, 0.55) !important;
+}
+
+/* ---------- 结构层：已知容器底色（类名失效时这些规则只是不匹配，无副作用） ---------- */
+html:not([data-dsh-cyber="off"]) :is(.mP3x-q_frame, .mP3x-q_centerCol, .mP3x-q_mainPanel,
+    .an3WzG_root, .V4vHZW_root, .wtg9ga_root) {
+  background: #0b100e !important;
+}
+
+html:not([data-dsh-cyber="off"]) .mP3x-q_sidebarCol {
+  background: #080d0b !important;
+  border-right: 1px solid rgba(88, 192, 143, 0.12);
+}
+
+html:not([data-dsh-cyber="off"]) .an3WzG_header {
+  background: #0b100e !important;
+  border-bottom-color: rgba(88, 192, 143, 0.20) !important;
+  box-shadow: none !important;
+}
+
+/* ---------- CRT 层：扫描线 + 暗角 ---------- */
+html:not([data-dsh-cyber="off"]) body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147482900;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(88, 192, 143, 0.07), transparent 68%),
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.42) 100%);
+}
+
+html:not([data-dsh-cyber="off"]) body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(88, 192, 143, 0.055) 0,
+    rgba(88, 192, 143, 0.055) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.75;
+}
+
+/* ---------- 静态色板：默认深色主题是偏蓝的黑（#13161d / #1b1e26 一类），
+   右侧抽屉、文件/任务面板在开合动画里会露出这些颜色，造成"蓝黑闪一下"。
+   这里把 bluish 中性色整体换成绿调。 ---------- */
+html:not([data-dsh-cyber="off"]) {
+  --dsw-static-neutral-00: #f2fff8;
+  --dsw-static-neutral-bluish-00: #f2fff8;
+  --dsw-static-neutral-bluish-50: #e8f9f1;
+  --dsw-static-neutral-bluish-60: #ddf4ea;
+  --dsw-static-neutral-bluish-75: #d0ecdf;
+  --dsw-static-neutral-bluish-100: #bfe4d3;
+  --dsw-static-neutral-bluish-300: #8ed3b2;
+  --dsw-static-neutral-bluish-400: #6fc19f;
+  --dsw-static-neutral-bluish-500: #55ad8b;
+  --dsw-static-neutral-bluish-600: #43957a;
+  --dsw-static-neutral-bluish-700: #357c66;
+  --dsw-static-neutral-bluish-750: #2e6d5a;
+  --dsw-static-neutral-bluish-800: #2a6353;
+  --dsw-static-neutral-bluish-850: #235243;
+  --dsw-static-neutral-bluish-900: #1b3f34;
+  --dsw-static-neutral-bluish-1000: #10241d;
+  --dsw-static-deepseek-400: #58c08f;
+  --dsw-static-deepseek-500: #479a76;
+  --dsw-static-blue-500: #479a76;
+  /* 遮罩 / 抽屉背景 */
+  --dsw-alias-bg-mask-1: rgba(3, 10, 7, 0.62);
+  --dsw-alias-bg-mask-2: rgba(3, 10, 7, 0.72);
+  --dsw-alias-bg-mask-3: rgba(3, 10, 7, 0.82);
+  --dsw-alias-bg-mask-drop: rgba(3, 10, 7, 0.55);
+  --dsw-alias-bg-mask-photo: rgba(3, 10, 7, 0.60);
+  background-color: #0b100e !important;
+}
+
+/* 根节点统一底色：任何"还没画到主题色"的瞬间都只能是绿黑，不会是系统蓝黑 */
+html:not([data-dsh-cyber="off"]) #root,
+html:not([data-dsh-cyber="off"]) #app,
+html:not([data-dsh-cyber="off"]) body > div {
+  background-color: transparent !important;
+}
+
+/* ---------- claude-style 自有色板 ----------
+   右侧"详情"面板（文件 / 上下文 / 任务）由 claude-style 渲染，用的是
+   --dsh-claude-* 变量而不是 --dsw-alias-*。它默认的深色画布是偏蓝黑，
+   面板关闭动画那几帧会露出来，所以这里把这套色板也映射成绿调。 */
+html:not([data-dsh-cyber="off"]) body[data-dsh-claude-style][data-dsh-claude-palette]:not([data-ds-dark-theme]),
+html:not([data-dsh-cyber="off"]) body[data-dsh-claude-style][data-dsh-claude-palette][data-ds-dark-theme] {
+  --dsh-claude-canvas: #0b100e;
+  --dsh-claude-sidebar-canvas: #080d0b;
+  --dsh-claude-card: #101713;
+  --dsh-claude-divider: rgba(88, 192, 143, 0.18);
+  --dsh-claude-chip: #101713;
+  --dsh-claude-table-head: #101713;
+  --dsh-claude-inline-code-bg: rgba(88, 192, 143, 0.09);
+  --dsh-claude-inline-code-fg: #9df0c4;
+  --dsh-claude-scrollbar: rgba(88, 192, 143, 0.10);
+  --dsh-claude-scrollbar-hover: rgba(88, 192, 143, 0.24);
+  --dsh-claude-hover-bg: rgba(88, 192, 143, 0.10);
+  --dsh-claude-link: #7fe0b3;
+  --dsh-claude-link-hover: #9df0c4;
+  --dsh-claude-link-underline: rgba(88, 192, 143, 0.45);
+  --dsh-claude-logo-ink: #58c08f;
+  --dsh-claude-inverse-ink: #0b100e;
+  --dsh-claude-inverse-fill: #58c08f;
+  --dsh-claude-field-ring: rgba(88, 192, 143, 0.55);
+  --dsh-claude-custom-canvas-dark: #0b100e;
+  --dsh-claude-custom-canvas-light: #0b100e;
+  --dsh-claude-custom-accent: #58c08f;
+  --dsh-claude-ripple-ink: rgba(88, 192, 143, 0.20);
+  background-color: #0b100e;
+}
+
+/* ---------- 右侧栏（details seat）----------
+   面板打开/关闭动画时，右栏容器本身（.mP3x-q_rightbarCol / .K5rwea_details）
+   会先露出默认深色画布（偏蓝黑），再被面板内容盖住，形成"闪一下蓝黑"。
+   直接把这块区域钉成主题底色。 */
+html:not([data-dsh-cyber="off"]) :is(.mP3x-q_rightbarCol, [class*="_rightbarCol"], [class*="_rightbar"], [class*="_details"]) {
+  background-color: #0b100e !important;
+  background-image: none !important;
+  border-color: rgba(88, 192, 143, 0.24) !important;
+}
+
+/* ---------- 基础主题作用域 ----------
+   DSH 的默认配色不是写在 :root，而是 body[data-ds-dark-theme] / body[data-ds-light-theme]
+   上的。这些规则作用在 body 自身，光压 html 会被它们盖掉；面板开合那几帧若
+   暂时脱离 claude-style 的 body 作用域，就会露出 #13161d 这种偏蓝黑。
+   这里把基础作用域的令牌也覆盖一遍。 */
+html:not([data-dsh-cyber="off"]) body[data-ds-dark-theme],
+html:not([data-dsh-cyber="off"]) body[data-ds-dark-theme]:not([data-dsh-claude-style]),
+html:not([data-dsh-cyber="off"]) body[data-ds-light-theme],
+html:not([data-dsh-cyber="off"]) body:not([data-ds-light-theme]):not([data-ds-dark-theme]) {
+  --dsw-alias-bg-base: var(--cy-bg, #0b100e);
+  --dsw-alias-bg-layer-1: var(--cy-bg, #0b100e);
+  --dsw-alias-bg-layer-2: #101713;
+  --dsw-alias-bg-layer-3: #141d17;
+  --dsw-alias-bg-module-platform: #0d1310;
+  --dsw-alias-card-fill: #101713;
+  --dsw-alias-card-tile-fill: #121a16;
+  --dsw-alias-markdown-code-block: #0a1410;
+  --dsw-alias-tooltip-bg: #141d17;
+  --dsw-alias-bg-mask-1: rgba(3, 10, 7, 0.62);
+  --dsw-alias-bg-mask-2: rgba(3, 10, 7, 0.72);
+  --dsw-alias-bg-mask-3: rgba(3, 10, 7, 0.82);
+  --dsw-alias-label-primary: #58c08f;
+  --dsw-alias-label-secondary: #479a76;
+  --dsw-alias-label-tertiary: #377c5f;
+  --dsw-alias-label-caption: #368760;
+  --dsw-alias-label-dimmed: #2a6149;
+  --dsw-alias-menu-icon: #479a76;
+  --dsw-alias-link: #7fe0b3;
+  --dsw-alias-border-l1: rgba(88, 192, 143, 0.24);
+  --dsw-alias-border-l2: rgba(88, 192, 143, 0.55);
+  --dsw-alias-border-l3: rgba(88, 192, 143, 0.55);
+  --dsw-alias-border-l4: rgba(88, 192, 143, 0.55);
+  --dsw-alias-interactive-bg-hover: rgba(88, 192, 143, 0.10);
+  --dsw-alias-interactive-bg-active: rgba(88, 192, 143, 0.16);
+  --dsw-alias-interactive-bg-hover-solid: #14251c;
+  --dsw-alias-button-primary-fill: #2f8f66;
+  --dsw-alias-button-primary-hover: #37a577;
+  --dsw-alias-button-floating-fill: #141d17;
+  --dsw-alias-button-elevated-fill: #141d17;
+  --dsw-alias-button-ghost-active-fill: rgba(88, 192, 143, 0.24);
+  --dsw-alias-scrollbar-bg-l2: rgba(88, 192, 143, 0.10);
+  --dsw-alias-scrollbar-hover-l2: rgba(88, 192, 143, 0.24);
+  --dsw-focus-ring-color: rgba(88, 192, 143, 0.55);
+  background-color: var(--cy-bg, #0b100e);
+}
+
+/* ---------- 浮层（模型切换 / 权限选择等）----------
+   claude-style 的 popover 是"半透明卡片 + backdrop-filter"的组合，
+   在深色主题下会透出后面的输入框，读起来很吃力。
+   这里直接给浮层一张实底，并关掉 backdrop-filter。 */
+html:not([data-dsh-cyber="off"]) :is(
+  .dsh-claude-popover-card,
+  .dsh-claude-model-popover,
+  .dsh-claude-perm-popover,
+  .dsh-claude-effort-popover,
+  .dsh-claude-account-popover,
+  [data-dsh-claude-account-menu],
+  [data-dsh-claude-hero-menu],
+  [data-dsh-claude-more-menu]
+) {
+  background-color: #101713 !important;
+  border-color: rgba(88, 192, 143, 0.55) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* ---------- 没有 claude-style 时的排版基线 ----------
+   claude-style 皮肤同时提供"排版层"（字号、行高、字间距、留白）。
+   关掉它之后基础版会明显变密变灰，这里补一层克制的排版基线，
+   让赛博绿主题在两种情况下都保持可读性。 */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) .mP3x-q_frame :is(p, li, blockquote, td, th, dd) {
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.012em;
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) .mP3x-q_frame :is(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is(.mP3x-q_centerCol, .mP3x-q_mainPanel, .mP3x-q_rightbarCol, .an3WzG_root) {
+  background-color: #0b100e !important;
+}
+
+/* ---------- 排版对齐（无 claude-style 时生效）----------
+   claude-style 的排版本质是改 DSH 的排版令牌 + 给正文加行高。
+   这里复刻它最关键的三件事：正文基准字号、Markdown 标题字阶、正文行高/字间距。 */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) {
+  --dsh-content-font-size: 15px;
+  --dsh-content-font-size-secondary: 13px;
+  --dsw-font-markdown-h2: 700 calc(18px + var(--dsh-content-font-delta)) / calc(26px + var(--dsh-content-font-delta)) var(--dsw-font-family);
+  --dsw-font-markdown-h3: 700 calc(16px + var(--dsh-content-font-delta)) / calc(24px + var(--dsh-content-font-delta)) var(--dsw-font-family);
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) .mP3x-q_frame :is(p, li, blockquote) {
+  line-height: 1.8;
+  letter-spacing: 0.012em;
+}
+
+/* 段落之间留白（claude 的呼吸感主要来自这里） */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) .mP3x-q_frame :is(p + p, p + ul, p + ol, ul + p, ol + p) {
+  margin-top: 0.9em;
+}
+
+/* ---------- 细节动效（无 claude-style 时生效）---------- */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is(button, [role="button"], a) {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+@keyframes cyber-fade-rise {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([class*="flowItem"], [class*="messageRow"]) {
+  animation: cyber-fade-rise 0.18s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([class*="flowItem"], [class*="messageRow"]) {
+    animation: none;
+  }
+}
+
+/* ---------- claude 风格复刻：正文衬线 + 气泡圆角 ---------- */
+/* 拉丁字母走衬线（Georgia / Times），中文仍留无衬线，和 claude 的做法一致 */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) .mP3x-q_frame :is(p, li, blockquote, td, th, dd) {
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "Microsoft YaHei", var(--dsw-font-family), sans-serif;
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) .mP3x-q_frame :is(h1, h2, h3, h4) {
+  font-family: Georgia, "Times New Roman", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "Microsoft YaHei", var(--dsw-font-family), sans-serif;
+}
+
+/* 用户气泡 / 卡片：claude 用 14–16px 圆角 + 更宽左右留白 */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([class*="_bubble_"], [class*="userBubble"]) {
+  border-radius: 16px !important;
+  padding: 10px 16px !important;
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([class*="_card_"], [class*="assistantCard"]) {
+  border-radius: 14px !important;
+}
+
+/* ---------- 设置页可读性（无 claude-style 时）---------- */
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([class*="settings"], [class*="Settings"], [class*="preferences"], [class*="Preferences"]) {
+  background-color: #0b100e !important;
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([class*="settings"], [class*="Settings"], [class*="preferences"], [class*="Preferences"]) :is(button, label, [role="button"], [role="option"], [role="radio"], [class*="card"], [class*="option"], [class*="item"]) {
+  border: 1px solid rgba(88, 192, 143, 0.28) !important;
+  background-color: #101713 !important;
+  border-radius: 10px;
+}
+
+html:not([data-dsh-cyber="off"]) body:not([data-dsh-claude-style]) :is([aria-selected="true"], [aria-checked="true"], [data-selected="true"], [data-active="true"]) {
+  border-color: rgba(88, 192, 143, 0.7) !important;
+  box-shadow: 0 0 0 1px rgba(88, 192, 143, 0.45), 0 0 12px rgba(88, 192, 143, 0.18) !important;
+}
+
+/* ---------- 表单控件边界（无 claude-style 时更明显）---------- */
+html:not([data-dsh-cyber="off"]) :is(input, select, textarea, [role="radio"], [role="checkbox"], [role="option"]) {
+  border: 1px solid rgba(88, 192, 143, 0.34) !important;
+  background-color: #101713 !important;
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Cyber green theme">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0b100e" stroke="#2f8f66" stroke-width="2"/>
+  <rect x="10" y="16" width="44" height="6" rx="3" fill="#63e6a4" opacity="0.9"/>
+  <rect x="10" y="28" width="30" height="5" rx="2.5" fill="#4bbf8b" opacity="0.8"/>
+  <rect x="10" y="38" width="38" height="5" rx="2.5" fill="#63e6a4" opacity="0.55"/>
+  <circle cx="48" cy="48" r="7" fill="#0b100e" stroke="#63e6a4" stroke-width="2.5"/>
+  <circle cx="48" cy="48" r="2.6" fill="#63e6a4"/>
+</svg>

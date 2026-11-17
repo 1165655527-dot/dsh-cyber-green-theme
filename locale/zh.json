@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "赛博绿主题",
+    "description": "把整个 DeepSeek Harness 窗口换成 CRT 赛博绿：侧边栏、顶部栏、输入框、菜单与浮层统一配色，带淡淡的 CRT 扫描线与暗角。输入框工具条最左侧有一个小开关（iOS 风格，绿=开 / 灰=关），悬停显示当前状态，选择会被记住。配色由 DSH 设计令牌驱动，之后新装的插件会自动跟随。 建议搭配 dsh-claude-style 插件使用（作者 Nwflower，MIT，https://github.com/Nwflower/dsh-claude-style）：它提供排版与动效层，本主题提供色彩层，两者叠加效果最佳；单独使用也可，内置了排版基线。 除 localStorage 的 dsh.cyber-green 外不写入任何数据。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}
