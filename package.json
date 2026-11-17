@@ -1,6 +1,6 @@
 {
   "name": "dsh-cyber-green-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CRT 赛博绿配色主题 for DSH：侧边栏/顶栏/输入框/浮层统一绿色 + 扫描线，输入框左侧小开关一键切换。基于设计令牌实现，新装插件自动跟随配色。建议搭配 dsh-claude-style（Nwflower，MIT，https://github.com/Nwflower/dsh-claude-style）使用：它提供排版与动效层。",
   "keywords": [
     "dsh",
@@ -39,5 +39,13 @@
         "@deepseek-ai/dsh-client-ui-conversation"
       ]
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1165655527-dot/dsh-cyber-green-theme.git"
+  },
+  "homepage": "https://github.com/1165655527-dot/dsh-cyber-green-theme#readme",
+  "bugs": {
+    "url": "https://github.com/1165655527-dot/dsh-cyber-green-theme/issues"
   }
 }

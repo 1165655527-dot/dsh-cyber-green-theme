@@ -1,5 +1,7 @@
 # 赛博绿主题 · DSH Cyber Green Theme
 
+[![npm](https://img.shields.io/npm/v/dsh-cyber-green-theme?color=58c08f)](https://www.npmjs.com/package/dsh-cyber-green-theme) [![license](https://img.shields.io/badge/license-MIT-58c08f)](LICENSE)
+
 把整个 DeepSeek Harness 界面换成 CRT 赛博绿：侧边栏、顶部栏、输入框、菜单、浮层统一配色，并带一层淡淡的 CRT 扫描线与暗角。
 
 > **建议搭配 [`dsh-claude-style`](https://github.com/Nwflower/dsh-claude-style) 一起使用。**
